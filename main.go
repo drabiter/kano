@@ -1,22 +1,38 @@
 package main
 
 import (
-	"os"
+	"strconv"
+	"strings"
 
-	"github.com/urfave/cli"
+	"github.com/chzyer/readline"
 )
 
 func main() {
-	app := cli.NewApp()
+	reader, err := readline.New("> ")
 
-	app.Name = "kano"
-	app.Usage = "cli interface for HummingBird API"
-	app.Version = "0.0.1"
-
-	app.Action = func(c *cli.Context) error {
-		ListWatching()
-		return nil
+	if err != nil {
+		panic(err)
 	}
+	defer reader.Close()
 
-	app.Run(os.Args)
+	ListWatching()
+
+	for {
+		line, err := reader.Readline()
+
+		if err != nil {
+			break
+		}
+
+		args := strings.Split(line, " ")
+
+		if args[0] == "bump" {
+			count, _ := strconv.ParseInt(args[1], 10, 0)
+
+			Update(int(count), 1)
+		}
+		if args[1] == "list" {
+			ListWatching()
+		}
+	}
 }

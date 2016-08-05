@@ -1,18 +1,22 @@
 package main
 
 import (
+	"bytes"
 	"encoding/json"
 	"fmt"
-	"io/ioutil"
+	"io"
 	"net/http"
+	"os"
+	"strconv"
 	"time"
 )
 
-const STATUS_WATCHING string = "currently-watching"
-const STATUS_COMPLETED string = "completed"
-const STATUS_PLAN_TO_WATCH string = "plan-to-watch"
-const STATUS_DROPPED string = "dropped"
-const STATUS_HOLD string = "on-hold"
+const apiUrl string = "https://hummingbird.me/api/v1"
+const StatusWatching string = "currently-watching"
+const StatusCompleted string = "completed"
+const StatusPlanToWatch string = "plan-to-watch"
+const StatusDropped string = "dropped"
+const StatusHold string = "on-hold"
 
 type Record struct {
 	ID              int       `json:"id"`
@@ -32,8 +36,14 @@ type Record struct {
 	} `json:"rating"`
 }
 
+type Payload struct {
+	AuthToken       string `json:"auth_token"`
+	Status          string `json:"status"`
+	EpisodesWatched int    `json:"episodes_watched"`
+}
+
 func ListAnime(username string, token string, status string) []Record {
-	req, _ := http.NewRequest("GET", fmt.Sprintf("https://hummingbird.me/api/v1/users/%s/library", username), nil)
+	req, _ := http.NewRequest("GET", fmt.Sprintf("%s/users/%s/library", apiUrl, username), nil)
 
 	query := req.URL.Query()
 	query.Add("auth_token", token)
@@ -46,8 +56,35 @@ func ListAnime(username string, token string, status string) []Record {
 	defer res.Body.Close()
 
 	var records []Record
-	bytes, _ := ioutil.ReadAll(res.Body)
-	json.Unmarshal(bytes, &records)
+	json.NewDecoder(res.Body).Decode(&records)
 
 	return records
+}
+
+func UpdateAnime(token string, id int, episode int) Record {
+	payload := Payload{
+		AuthToken:       token,
+		Status:          StatusWatching,
+		EpisodesWatched: episode,
+	}
+
+	buffer := new(bytes.Buffer)
+	json.NewEncoder(buffer).Encode(payload)
+	// bytess, _ := json.Marshal(payload)
+
+	fmt.Println(fmt.Sprintf("%s/libraries/%s", apiUrl, strconv.Itoa(id)))
+	fmt.Printf("%+v\n", payload)
+
+	res, err := http.Post(fmt.Sprintf("%s/libraries/%s", apiUrl, strconv.Itoa(id)), "application/json; charset=utf-8", buffer)
+	if err != nil {
+		fmt.Println(err)
+	}
+	io.Copy(os.Stdout, res.Body)
+	defer res.Body.Close()
+
+	var record Record
+	json.NewDecoder(res.Body).Decode(&record)
+	fmt.Printf("%+v\n", record)
+
+	return record
 }
