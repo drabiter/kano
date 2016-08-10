@@ -61,19 +61,15 @@ func ListAnime(username string, token string, status string) []Record {
 	return records
 }
 
-func UpdateAnime(token string, id int, episode int) Record {
+func UpdateAnime(token string, id int, episode int, status string) Record {
 	payload := Payload{
 		AuthToken:       token,
-		Status:          StatusWatching,
+		Status:          status,
 		EpisodesWatched: episode,
 	}
 
 	buffer := new(bytes.Buffer)
 	json.NewEncoder(buffer).Encode(payload)
-	// bytess, _ := json.Marshal(payload)
-
-	fmt.Println(fmt.Sprintf("%s/libraries/%s", apiUrl, strconv.Itoa(id)))
-	fmt.Printf("%+v\n", payload)
 
 	res, err := http.Post(fmt.Sprintf("%s/libraries/%s", apiUrl, strconv.Itoa(id)), "application/json; charset=utf-8", buffer)
 	if err != nil {
@@ -84,7 +80,6 @@ func UpdateAnime(token string, id int, episode int) Record {
 
 	var record Record
 	json.NewDecoder(res.Body).Decode(&record)
-	fmt.Printf("%+v\n", record)
 
 	return record
 }
