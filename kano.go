@@ -29,9 +29,16 @@ func GetTitle(index int64) string {
 	return records[index].Anime.Title
 }
 
-func Update(index int, count int) {
+func UpdateEpisode(index int, count int) {
 	record := records[index]
-	UpdateAnime(token, record.Anime.ID, record.EpisodesWatched+count)
+
+	totalWatched := record.EpisodesWatched + count
+	status := StatusWatching
+	if totalWatched >= record.Anime.EpisodeCount {
+		status = StatusCompleted
+	}
+
+	UpdateAnime(token, record.Anime.ID, totalWatched, status)
 
 	ListWatching()
 }
