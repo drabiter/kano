@@ -1,5 +1,7 @@
 # Kano
 
-Stupid simple [Hummingbird](https://hummingbird.me/) CLI client.
+stupid simple [Hummingbird](https://hummingbird.me/) CLI client.
 
-## Build
+## Download
+
+`wget https://github.com/drabiter/kano/raw/master/build/kano`
