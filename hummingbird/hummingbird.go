@@ -153,15 +153,12 @@ func RemoveAnime(token string, id int) {
 func putLibraries(url string, payload *Payload) Record {
 	buffer := new(bytes.Buffer)
 	json.NewEncoder(buffer).Encode(payload)
-	fmt.Println(url)
-	fmt.Println(buffer)
 
 	res, err := http.Post(url, "application/json; charset=utf-8", buffer)
 	defer res.Body.Close()
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(res.Status)
 
 	var record Record
 	json.NewDecoder(res.Body).Decode(&record)
