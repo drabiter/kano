@@ -136,7 +136,7 @@ func SearchAnime(keyword string) []Anime {
 }
 
 func RemoveAnime(token string, id int) {
-	payload := Payload{
+	payload := &Payload{
 		AuthToken: token,
 	}
 

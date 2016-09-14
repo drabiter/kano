@@ -8,42 +8,20 @@ stupid simple [Hummingbird](https://hummingbird.me/) CLI client.
 
 ## Usage
 
-`> list`
+`> list`                            - List current ly watching series
 
-List currently watching series
+`> history` or `> record`           - List completed series
 
-`> history`
+`> search <keywords>`               - Search series based on `keywords` - eg `search macross delta`
 
-`> record`
+`> add <hummingbird_anime_id>`      - Add series to watching list. This will reset watched episode to 0 - eg `add 9992`
 
-List completed series
+`> bump <id> [count]`               - Increase watched episode count by `count` (optional, default is one) - eg `bump 2`, `bump 2 10`
 
-`> search <keywords>`
+`> remove <id>` or `> delete <id>`  - Remove a series from watching list - eg `remove 1`
 
-Search series based on `keywords` - eg `search macross delta`
+`> finish <id>`                     - Bump episode count to total and mark it as finished - eg `finish 1`
 
-`> add <hummingbird_anime_id>`
+`> rate <id> <rating>`              - Rate a series with rating one of 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, or 5 - eg `rate 7 4.5`
 
-Add series to watching list. This will reset watched episode to 0 - eg `add 9992`
-
-`> bump <id> [count]`
-
-Increase watched episode count by `count` (optional, default is one) - eg `bump 2`, `bump 2 10`
-
-`> remove <id>`
-
-`> delete <id>`
-
-Remove a series from watching list - eg `remove 1`
-
-`> finish <id>`
-
-Bump episode count to total and mark it as finished - eg `finish 1`
-
-`> rate <id> <rating>`
-
-Rate a series with rating one of 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, or 5 - eg `rate 7 4.5`
-
-`> info`
-
-Show current logged in username and token
+`> info`                            - Show current logged in username and token
