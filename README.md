@@ -45,3 +45,8 @@ Raw executable `wget https://github.com/drabiter/kano/raw/master/build/kano`
 **> info**
   
   Show current logged in username and token
+
+**> quit**
+**> exit**
+
+  Quit and get a life ;)

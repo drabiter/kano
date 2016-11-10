@@ -20,11 +20,9 @@ func main() {
 	completer := readline.NewPrefixCompleter(
 		readline.PcItem("list"),
 		readline.PcItem("history"),
-		readline.PcItem("record"), // dup of history
 		readline.PcItem("bump"),
 		readline.PcItem("search"),
 		readline.PcItem("add"),
-		readline.PcItem("remove"),
 		readline.PcItem("delete"), // dup of remove
 		readline.PcItem("finish"),
 		readline.PcItem("rate"),
