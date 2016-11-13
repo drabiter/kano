@@ -6,9 +6,9 @@ stupid simple [Hummingbird](https://hummingbird.me/) CLI client.
 
 ## Download
 
-Debian package `wget https://github.com/drabiter/kano/raw/master/build/kano_1.0-1.deb`
+[Debian package](https://github.com/drabiter/kano/raw/master/build/kano_1.1-0.deb)
 
-Raw executable `wget https://github.com/drabiter/kano/raw/master/build/kano`
+[Raw executable](https://github.com/drabiter/kano/raw/master/build/kano)
 
 ## Usage
 
