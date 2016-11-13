@@ -24,6 +24,7 @@ const kanoConfLoc string = "/.kano"
 
 var cfg Config
 
+var animes []hummingbird.Anime
 var records []hummingbird.Record
 
 func init() {
@@ -98,13 +99,13 @@ func UpdateEpisode(index int, count int) {
 }
 
 func SearchTitle(keyword string) {
-	result := hummingbird.SearchAnime(keyword)
+	animes = hummingbird.SearchAnime(keyword)
 
 	table := termtables.CreateTable()
 
 	table.AddHeaders("ID", "Title", "Type", "Total", "Status", "Rating")
-	for _, a := range result {
-		table.AddRow(a.ID, a.Title, a.ShowType, a.EpisodeCount, a.Status, a.Rating)
+	for idx, a := range animes {
+		table.AddRow(idx, a.Title, a.ShowType, a.EpisodeCount, a.Status, a.Rating)
 	}
 
 	fmt.Println(table.Render())
@@ -114,7 +115,7 @@ func AddTitle(id int) {
 	status := hummingbird.StatusWatching
 	totalWatched := 0
 
-	hummingbird.UpdateAnime(cfg.Token, id, totalWatched, status)
+	hummingbird.UpdateAnime(cfg.Token, animes[id].ID, totalWatched, status)
 
 	ListWatching()
 }

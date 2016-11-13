@@ -22,7 +22,7 @@ Raw executable `wget https://github.com/drabiter/kano/raw/master/build/kano`
   
   Search series based on `keywords` - eg `search macross delta`
 
-**> add [hummingbird_anime_id]**
+**> add [id]**
   
   Add series to watching list. This will reset watched episode to 0 - eg `add 9992`
 
