@@ -62,9 +62,9 @@ func ListWatching() {
 
 	table := termtables.CreateTable()
 
-	table.AddHeaders("ID", "Title", "Type", "Progress", "Total")
+	table.AddHeaders("ID", "Title", "Type", "Progress", "Total", "Your Rating", "Community Rating")
 	for idx, r := range records {
-		table.AddRow(idx, r.Anime.Title, r.Anime.ShowType, r.EpisodesWatched, r.Anime.EpisodeCount)
+		table.AddRow(idx, r.Anime.Title, r.Anime.ShowType, r.EpisodesWatched, r.Anime.EpisodeCount, r.Rating.Value, r.Anime.Rating)
 	}
 
 	fmt.Println(table.Render())
@@ -76,7 +76,7 @@ func ListCompleted() {
 
 	table := termtables.CreateTable()
 
-	table.AddHeaders("ID", "Title", "Type", "Total", "Rating", "Community Rating")
+	table.AddHeaders("ID", "Title", "Type", "Total", "Your Rating", "Community Rating")
 	for idx, r := range records {
 		table.AddRow(idx, r.Anime.Title, r.Anime.ShowType, r.Anime.EpisodeCount, r.Rating.Value, r.Anime.Rating)
 	}
