@@ -2,7 +2,7 @@
 
 stupid simple [Hummingbird](https://hummingbird.me/) CLI client.
 
-<script type="text/javascript" src="https://asciinema.org/a/2x7aoxgyiqp021cpjzr6agswx.js" id="asciicast-2x7aoxgyiqp021cpjzr6agswx" async></script>
+[![asciicast](https://asciinema.org/a/2x7aoxgyiqp021cpjzr6agswx.png)](https://asciinema.org/a/2x7aoxgyiqp021cpjzr6agswx)
 
 ## Download
 
