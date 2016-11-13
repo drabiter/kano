@@ -2,6 +2,8 @@
 
 stupid simple [Hummingbird](https://hummingbird.me/) CLI client.
 
+<script type="text/javascript" src="https://asciinema.org/a/2x7aoxgyiqp021cpjzr6agswx.js" id="asciicast-2x7aoxgyiqp021cpjzr6agswx" async></script>
+
 ## Download
 
 Debian package `wget https://github.com/drabiter/kano/raw/master/build/kano_1.0-1.deb`
@@ -50,3 +52,19 @@ Raw executable `wget https://github.com/drabiter/kano/raw/master/build/kano`
 **> exit**
 
   Quit and get a life ;)
+
+## Changelog
+
+**1.1**
+
+- [x] show user and community rating on watching list
+- [x] use table number to add title to watching list
+
+**1.0**
+
+- [x] disaster
+
+**TODO**
+
+- [ ] give history table some color - it's hard to read
+- [ ] one letter command alias - 's' for 'search'
