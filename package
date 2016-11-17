@@ -1,5 +1,5 @@
 #!/bin/sh
-release="kano_$1-$2"
+release="kano-latest"
 
 mkdir "build/$release"
 mkdir "build/$release/usr"
