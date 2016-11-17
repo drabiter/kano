@@ -121,7 +121,7 @@ func AddTitle(id int) {
 }
 
 func RemoveTitle(id int) {
-	hummingbird.RemoveAnime(cfg.Token, id)
+	hummingbird.RemoveAnime(cfg.Token, records[id].Anime.ID)
 
 	ListWatching()
 }

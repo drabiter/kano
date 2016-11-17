@@ -6,7 +6,7 @@ stupid simple [Hummingbird](https://hummingbird.me/) CLI client.
 
 ## Download
 
-[Debian package](https://github.com/drabiter/kano/raw/master/build/kano_1.1-0.deb)
+[Debian package](https://github.com/drabiter/kano/raw/master/build/kano_1.2-0.deb)
 
 [Raw executable](https://github.com/drabiter/kano/raw/master/build/kano)
 
@@ -54,6 +54,10 @@ stupid simple [Hummingbird](https://hummingbird.me/) CLI client.
   Quit and get a life ;)
 
 ## Changelog
+
+**1.2**
+
+- [x] fix deleting title from watching list
 
 **1.1**
 
