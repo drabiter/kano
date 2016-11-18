@@ -12,46 +12,63 @@ stupid simple [Hummingbird](https://hummingbird.me/) CLI client.
 
 ## Usage
 
-**> list**
+```
+$ kano
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| ID | Title                           | Type | Progress | Total | Your Rating | Community Rating |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| 0  | Brave Witches                   | TV   | 2        | 12    |             | 3.58             |
+| 1  | Love Live! Sunshine!!           | TV   | 12       | 13    |             | 3.79             |
++----+---------------------------------+------+----------+-------+-------------+------------------+
 
-  List current watching series
+> search girlish
++----+-------------------+------+-------+------------------+--------+
+| ID | Title             | Type | Total | Status           | Rating |
++----+-------------------+------+-------+------------------+--------+
+| 0  | Gi(a)rlish Number | TV   | 12    | Currently Airing | 3.87   |
++----+-------------------+------+-------+------------------+--------+
 
-**> history**
-  
-  List completed series
+> add 0
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| ID | Title                           | Type | Progress | Total | Your Rating | Community Rating |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| 0  | Gi(a)rlish Number               | TV   | 0        | 12    |             | 3.87             |
+| 1  | Brave Witches                   | TV   | 2        | 12    |             | 3.58             |
+| 2  | Love Live! Sunshine!!           | TV   | 12       | 13    |             | 3.79             |
++----+---------------------------------+------+----------+-------+-------------+------------------+
 
-**> search <keywords>**               
-  
-  Search series based on `keywords` - eg `search macross delta`
+> bump 0 2
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| ID | Title                           | Type | Progress | Total | Your Rating | Community Rating |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| 0  | Gi(a)rlish Number               | TV   | 2        | 12    |             | 3.87             |
+| 1  | Brave Witches                   | TV   | 2        | 12    |             | 3.58             |
+| 2  | Love Live! Sunshine!!           | TV   | 12       | 13    |             | 3.79             |
++----+---------------------------------+------+----------+-------+-------------+------------------+
 
-**> add [id]**
-  
-  Add series to watching list. This will reset watched episode to 0 - eg `add 9992`
+> bump 1
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| ID | Title                           | Type | Progress | Total | Your Rating | Community Rating |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| 0  | Gi(a)rlish Number               | TV   | 2        | 12    |             | 3.87             |
+| 1  | Brave Witches                   | TV   | 3        | 12    |             | 3.58             |
+| 2  | Love Live! Sunshine!!           | TV   | 12       | 13    |             | 3.79             |
++----+---------------------------------+------+----------+-------+-------------+------------------+
 
-**> bump [id] &lt;count&gt;**
+> record
+// ... bunch of finished series ...
 
-  Increase watched episode count by `count` (optional, default is one) - eg `bump 2`, `bump 2 10`
+> list
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| ID | Title                           | Type | Progress | Total | Your Rating | Community Rating |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| 0  | Gi(a)rlish Number               | TV   | 2        | 12    |             | 3.87             |
+| 1  | Brave Witches                   | TV   | 3        | 12    |             | 3.58             |
+| 2  | Love Live! Sunshine!!           | TV   | 12       | 13    |             | 3.79             |
++----+---------------------------------+------+----------+-------+-------------+------------------+
 
-**> delete [id]**
-  
-  Remove a series from watching list - eg `remove 1`
-
-**> finish [id]**
-  
-  Bump episode count to total and mark it as finished - eg `finish 1`
-
-**> rate [id] &lt;rating&gt;**
-  
-  Rate a series with rating one of 0, 0.5, 1, 1.5, 2, 2.5, 3, 3.5, 4, 4.5, or 5 - eg `rate 7 4.5`
-
-**> info**
-  
-  Show current logged in username and token
-
-**> quit**
-**> exit**
-
-  Quit and get a life ;)
+> quit
+```
 
 ## Changelog
 
