@@ -18,6 +18,8 @@ type Config struct {
 	Token string `json:"token"`
 }
 
+const version = "1.2-0"
+
 const kanoUserEnv string = "KANO_USER"
 const kanoTokenEnv string = "KANO_TOKEN"
 const kanoConfLoc string = "/.kano"
@@ -138,6 +140,11 @@ func RateTitle(index int, rating float32) {
 	record := records[index]
 
 	hummingbird.RateAnime(cfg.Token, record.Anime.ID, rating)
+}
+
+func Version() {
+	fmt.Println("Version " + version)
+	fmt.Println()
 }
 
 func try(err error) {

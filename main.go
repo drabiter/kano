@@ -17,6 +17,8 @@ import (
 )
 
 func main() {
+	Version()
+
 	completer := readline.NewPrefixCompleter(
 		readline.PcItem("list"),
 		readline.PcItem("history"),
@@ -28,6 +30,7 @@ func main() {
 		readline.PcItem("rate"),
 		readline.PcItem("quit"),
 		readline.PcItem("exit"), // dup of quit
+		readline.PcItem("version"),
 	)
 
 	reader, err := readline.NewEx(&readline.Config{
@@ -122,6 +125,8 @@ func main() {
 			Info()
 		case "quit", "exit":
 			os.Exit(0)
+		case "version":
+			Version()
 		default:
 		}
 	}
