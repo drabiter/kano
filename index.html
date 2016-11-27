@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Kano by drabiter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Kano</h1>
+      <h2 class="project-tagline">Poorman https://hummingbird.me/ CLI client.</h2>
+      <a href="https://github.com/drabiter/kano" class="btn">View on GitHub</a>
+      <a href="https://github.com/drabiter/kano/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/drabiter/kano/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="kano" class="anchor" href="#kano" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Kano</h1>
+
+<p>stupid simple <a href="https://hummingbird.me/">Hummingbird</a> CLI client.</p>
+
+<p><a href="https://asciinema.org/a/2x7aoxgyiqp021cpjzr6agswx"><img src="https://asciinema.org/a/2x7aoxgyiqp021cpjzr6agswx.png" alt="asciicast"></a></p>
+
+<h2>
+<a id="download" class="anchor" href="#download" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Download</h2>
+
+<p><a href="https://github.com/drabiter/kano/raw/master/build/kano-latest.deb">Debian package</a></p>
+
+<p><a href="https://github.com/drabiter/kano/raw/master/build/kano">Raw executable</a></p>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<pre><code>$ kano
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| ID | Title                           | Type | Progress | Total | Your Rating | Community Rating |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| 0  | Brave Witches                   | TV   | 2        | 12    |             | 3.58             |
+| 1  | Love Live! Sunshine!!           | TV   | 12       | 13    |             | 3.79             |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+
+&gt; search girlish
++----+-------------------+------+-------+------------------+--------+
+| ID | Title             | Type | Total | Status           | Rating |
++----+-------------------+------+-------+------------------+--------+
+| 0  | Gi(a)rlish Number | TV   | 12    | Currently Airing | 3.87   |
++----+-------------------+------+-------+------------------+--------+
+
+&gt; add 0
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| ID | Title                           | Type | Progress | Total | Your Rating | Community Rating |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| 0  | Gi(a)rlish Number               | TV   | 0        | 12    |             | 3.87             |
+| 1  | Brave Witches                   | TV   | 2        | 12    |             | 3.58             |
+| 2  | Love Live! Sunshine!!           | TV   | 12       | 13    |             | 3.79             |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+
+&gt; rate 2 5.0
+&gt; list
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| ID | Title                           | Type | Progress | Total | Your Rating | Community Rating |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| 0  | Gi(a)rlish Number               | TV   | 2        | 12    |             | 3.87             |
+| 1  | Brave Witches                   | TV   | 3        | 12    |             | 3.58             |
+| 2  | Love Live! Sunshine!!           | TV   | 12       | 13    | 5.0         | 3.79             |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+
+&gt; bump 0 2
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| ID | Title                           | Type | Progress | Total | Your Rating | Community Rating |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| 0  | Gi(a)rlish Number               | TV   | 2        | 12    |             | 3.87             |
+| 1  | Brave Witches                   | TV   | 2        | 12    |             | 3.58             |
+| 2  | Love Live! Sunshine!!           | TV   | 12       | 13    | 5.0         | 3.79             |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+
+&gt; bump 1
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| ID | Title                           | Type | Progress | Total | Your Rating | Community Rating |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+| 0  | Gi(a)rlish Number               | TV   | 2        | 12    |             | 3.87             |
+| 1  | Brave Witches                   | TV   | 3        | 12    |             | 3.58             |
+| 2  | Love Live! Sunshine!!           | TV   | 12       | 13    | 5.0         | 3.79             |
++----+---------------------------------+------+----------+-------+-------------+------------------+
+
+&gt; history
+// ... bunch of finished series ...
+
+&gt; quit
+</code></pre>
+
+<h2>
+<a id="changelog" class="anchor" href="#changelog" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Changelog</h2>
+
+<p><strong>1.2</strong></p>
+
+<ul>
+<li>[x] fix deleting title from watching list</li>
+</ul>
+
+<p><strong>1.1</strong></p>
+
+<ul>
+<li>[x] show user and community rating on watching list</li>
+<li>[x] use table number to add title to watching list</li>
+</ul>
+
+<p><strong>1.0</strong></p>
+
+<ul>
+<li>[x] disaster</li>
+</ul>
+
+<p><strong>TODO</strong></p>
+
+<ul>
+<li>[ ] give history table some color - it's hard to read</li>
+<li>[ ] one letter command alias - 's' for 'search'</li>
+</ul>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/drabiter/kano">Kano</a> is maintained by <a href="https://github.com/drabiter">drabiter</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
