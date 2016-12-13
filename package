@@ -10,7 +10,7 @@ go build -o "build/$release/usr/local/bin/kano" -ldflags "-s -w" github.com/drab
 
 mkdir "build/$release/DEBIAN"
 echo "Package: kano" >  "build/$release/DEBIAN/control"
-echo "Version: $1-$2" >>  "build/$release/DEBIAN/control"
+echo "Version: $1.$2" >>  "build/$release/DEBIAN/control"
 echo "Section: base" >>  "build/$release/DEBIAN/control"
 echo "Priority: optional" >>  "build/$release/DEBIAN/control"
 echo "Architecture: i386" >>  "build/$release/DEBIAN/control"

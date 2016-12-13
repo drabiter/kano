@@ -6,9 +6,9 @@ stupid simple [Hummingbird](https://hummingbird.me/) CLI client.
 
 ## Download
 
-[Debian package](https://github.com/drabiter/kano/raw/master/build/kano-latest.deb)
+Available as Debian package and binary executable on [release page](https://github.com/drabiter/kano/releases).
 
-[Raw executable](https://github.com/drabiter/kano/raw/master/build/kano)
+*not tested for OSX or Windows yet*
 
 ## Usage
 
@@ -70,21 +70,6 @@ $ kano
 
 > quit
 ```
-
-## Changelog
-
-**1.2**
-
-- [x] fix deleting title from watching list
-
-**1.1**
-
-- [x] show user and community rating on watching list
-- [x] use table number to add title to watching list
-
-**1.0**
-
-- [x] disaster
 
 **TODO**
 
